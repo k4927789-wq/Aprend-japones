@@ -1,0 +1,324 @@
+:root {
+    --teto-red: #ff2a55;
+    --teto-dark-red: #a81333;
+    --teto-dark: #1a181c;
+    --teto-card: rgba(28, 25, 31, 0.88);
+    --teto-light: #fff0f3;
+    --teto-gold: #ffcc00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-image: url('https://files.catbox.moe/53xlb4.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--teto-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    border-bottom: 4px solid var(--teto-red);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+}
+
+.header-content {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 2px solid var(--teto-red);
+    backdrop-filter: blur(5px);
+    width: 90%;
+    max-width: 600px;
+}
+
+.icon-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid var(--teto-red);
+    object-fit: cover;
+}
+
+.header-text h1 {
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 10px var(--teto-red);
+}
+
+.header-text p {
+    font-size: 0.9rem;
+    color: var(--teto-gold);
+}
+
+nav {
+    background: var(--teto-dark);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--teto-dark-red);
+}
+
+nav button {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--teto-red);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav button:hover, nav button.active {
+    background: var(--teto-red);
+    box-shadow: 0 0 10px var(--teto-red);
+}
+
+main {
+    flex: 1;
+    max-width: 950px;
+    width: 95%;
+    margin: 20px auto;
+    background: var(--teto-card);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 42, 85, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h2 {
+    color: var(--teto-red);
+    border-bottom: 2px solid var(--teto-dark-red);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--teto-red);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(255, 42, 85, 0.4);
+    background: rgba(168, 19, 51, 0.3);
+}
+
+.card .jp {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card .romaji {
+    color: var(--teto-gold);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.card .es {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 2px;
+}
+
+/* Translator Styling */
+.translator-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--teto-red);
+    border-radius: 10px;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+#btn-translate {
+    background: var(--teto-red);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn-translate:hover {
+    background: var(--teto-dark-red);
+    box-shadow: 0 0 10px var(--teto-red);
+}
+
+.translation-result {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px dashed var(--teto-red);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.translation-result.hidden {
+    display: none;
+}
+
+.res-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.res-label {
+    font-size: 0.85rem;
+    color: var(--teto-gold);
+    font-weight: bold;
+}
+
+.res-value {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.jp-big {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--teto-red);
+}
+
+.romaji-val {
+    color: var(--teto-gold);
+}
+
+/* Quiz Styling */
+.quiz-container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+}
+
+.quiz-question {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background: var(--teto-dark);
+    border: 1px solid var(--teto-red);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.option-btn:hover {
+    background: var(--teto-red);
+}
+
+#feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    height: 24px;
+}
+
+footer {
+    background: var(--teto-dark);
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid var(--teto-red);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+footer span {
+    color: var(--teto-red);
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        margin-top: -5px;
+    }
+    .banner-img {
+        max-height: 180px;
+    }
+}
