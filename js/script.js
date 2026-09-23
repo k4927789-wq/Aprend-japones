@@ -1,4 +1,4 @@
-// DATOS COMPLETOS DE HIRAGANA
+// SILABARIO HIRAGANA COMPLETO (46 Caracteres Básicos)
 const hiraganaData = [
     { jp: 'あ', r: 'a' }, { jp: 'い', r: 'i' }, { jp: 'う', r: 'u' }, { jp: 'え', r: 'e' }, { jp: 'お', r: 'o' },
     { jp: 'か', r: 'ka' }, { jp: 'き', r: 'ki' }, { jp: 'く', r: 'ku' }, { jp: 'け', r: 'ke' }, { jp: 'こ', r: 'ko' },
@@ -12,7 +12,7 @@ const hiraganaData = [
     { jp: 'わ', r: 'wa' }, { jp: 'を', r: 'wo' }, { jp: 'ん', r: 'n' }
 ];
 
-// DATOS COMPLETOS DE KATAKANA
+// SILABARIO KATAKANA COMPLETO (46 Caracteres Básicos)
 const katakanaData = [
     { jp: 'ア', r: 'a' }, { jp: 'イ', r: 'i' }, { jp: 'ウ', r: 'u' }, { jp: 'エ', r: 'e' }, { jp: 'オ', r: 'o' },
     { jp: 'カ', r: 'ka' }, { jp: 'キ', r: 'ki' }, { jp: 'ク', r: 'ku' }, { jp: 'ケ', r: 'ke' }, { jp: 'コ', r: 'ko' },
@@ -84,13 +84,13 @@ function renderCards(data, containerId, hasEs = false) {
     });
 }
 
-// CARGAR DATOS EN LA PÁGINA
+// CARGAR DATOS
 renderCards(hiraganaData, 'hiragana-grid');
 renderCards(katakanaData, 'katakana-grid');
 renderCards(vocabData, 'vocab-grid', true);
 renderCards(phrasesData, 'phrases-grid', true);
 
-// SISTEMA DE TRADUCCIÓN INTERACTIVO
+// TRADUCTOR ESPAÑOL A JAPONÉS INTERACTIVO
 async function translateText() {
     const text = document.getElementById('spanish-input').value.trim();
     const resultBox = document.getElementById('translation-result');
@@ -108,19 +108,19 @@ async function translateText() {
         const data = await res.json();
 
         const translation = data[0][0][0];
-        let romaji = (data[0][1] && data[0][1][2]) ? data[0][1][2] : "No disponible";
+        let romaji = (data[0][1] && data[0][1][2]) ? data[0][1][2] : "Lectura no disponible";
 
         document.getElementById('res-japanese').innerText = translation;
         document.getElementById('res-romaji').innerText = romaji;
         document.getElementById('res-furigana').innerText = translation;
         document.getElementById('res-meaning').innerText = text;
     } catch (e) {
-        document.getElementById('res-japanese').innerText = "Error en la traducción";
-        document.getElementById('res-romaji').innerText = "Intenta de nuevo.";
+        document.getElementById('res-japanese').innerText = "Error al traducir";
+        document.getElementById('res-romaji').innerText = "Revisa tu conexión.";
     }
 }
 
-// SISTEMA DE QUIZ / PRÁCTICA
+// PRÁCTICA DE LECTURA
 const quizQuestions = [
     { char: 'あ', answer: 'a', options: ['a', 'i', 'ka', 'e'] },
     { char: 'い', answer: 'i', options: ['u', 'i', 'o', 'ki'] },
@@ -156,4 +156,4 @@ function nextQuestion() {
         container.appendChild(btn);
     });
 }
-  
+
