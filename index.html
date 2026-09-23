@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendí Japonés | Kasane Teto Edition</title>
+    <link rel="icon" href="https://files.catbox.moe/4yxgvp.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <img src="https://files.catbox.moe/pe3jle.jpeg" alt="Banner Kasane Teto" class="banner-img">
+        <div class="header-content">
+            <img src="https://files.catbox.moe/4yxgvp.jpeg" alt="Icon Kasane Teto" class="icon-img">
+            <div class="header-text">
+                <h1>Aprendí Japonés</h1>
+                <p>Edición Temática Kasane Teto 🥖</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-tab="translator">Traductor Interactivo</button>
+        <button class="nav-btn" data-tab="hiragana">Hiragana Completo</button>
+        <button class="nav-btn" data-tab="katakana">Katakana Completo</button>
+        <button class="nav-btn" data-tab="vocabulario">Vocabulario Extenso</button>
+        <button class="nav-btn" data-tab="frases">Frases Básicas</button>
+        <button class="nav-btn" data-tab="practica">Práctica / Quiz</button>
+    </nav>
+
+    <main>
+        <!-- TRADUCTOR ESPAÑOL A JAPONÉS -->
+        <section id="translator" class="section active">
+            <h2>Traductor Español ➜ Japonés</h2>
+            <p class="section-desc">Escribe cualquier texto en español para obtener cómo se escribe, cómo se pronuncia (Romaji) y su lectura en Hiragana/Katakana.</p>
+
+            <div class="translator-box">
+                <textarea id="spanish-input" placeholder="Escribe algo en español aquí... (Ej: Hola, quiero comer pan)"></textarea>
+                <button id="btn-translate" onclick="translateText()">Traducir a Japonés 🥖</button>
+
+                <div id="translation-result" class="translation-result hidden">
+                    <div class="res-item">
+                        <span class="res-label">Escritura (Japonés):</span>
+                        <div id="res-japanese" class="res-value jp-big">-</div>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-label">Pronunciación (Romaji):</span>
+                        <div id="res-romaji" class="res-value romaji-val">-</div>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-label">Lectura Fonética (Furigana / Kana):</span>
+                        <div id="res-furigana" class="res-value">-</div>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-label">Significado traducido:</span>
+                        <div id="res-meaning" class="res-value">-</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HIRAGANA COMPLETO -->
+        <section id="hiragana" class="section">
+            <h2>Silabario Hiragana Completo</h2>
+            <div class="grid-cards" id="hiragana-grid"></div>
+        </section>
+
+        <!-- KATAKANA COMPLETO -->
+        <section id="katakana" class="section">
+            <h2>Silabario Katakana Completo</h2>
+            <div class="grid-cards" id="katakana-grid"></div>
+        </section>
+
+        <!-- VOCABULARIO EXTENSO -->
+        <section id="vocabulario" class="section">
+            <h2>Vocabulario Básico y Útil</h2>
+            <div class="grid-cards" id="vocab-grid"></div>
+        </section>
+
+        <!-- FRASES BÁSICAS -->
+        <section id="frases" class="section">
+            <h2>Frases del Día a Día</h2>
+            <div class="grid-cards" id="phrases-grid"></div>
+        </section>
+
+        <!-- PRÁCTICA -->
+        <section id="practica" class="section">
+            <h2>Práctica Interactiva</h2>
+            <div class="quiz-container">
+                <p>¿Cómo se lee / cuál es el significado de esta expresión?</p>
+                <div class="quiz-question" id="quiz-target">あ</div>
+                <div class="options-grid" id="options-container"></div>
+                <div id="feedback"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Creado por <span>Emmanuel Faustino</span></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
